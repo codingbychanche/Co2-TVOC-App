@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="title_home">Monitor</string>
+    <string name="title_dashboard">Settings</string>
+    <string name="title_notifications">Info</string>
+
+    <string name="app_name">Co2 App</string>
+    <string name="co2_level_descriptor">C02 [ppm]</string>
+    <string name="tvoc_descriptor">TVOC</string>
+
+    <!-- ConnectedThread -->
+
+</resources>

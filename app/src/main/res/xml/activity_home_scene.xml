@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:duration="5000"/>
+
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/co2_level_in_ppm"
+                motion:framePosition="0"
+                android:scaleX="4"
+                android:scaleY="4"/>
+
+            <KeyAttribute
+                motion:motionTarget="@+id/air_quality"
+                motion:framePosition="0"
+                android:scaleX="1"
+                android:scaleY="1"/>
+
+            <KeyAttribute
+                motion:motionTarget="@+id/co2_level_in_ppm"
+                motion:framePosition="100"
+                android:scaleX="1"
+                android:scaleY="1"/>
+
+            <KeyAttribute
+                motion:motionTarget="@+id/air_quality"
+                motion:framePosition="100"
+                android:scaleX="4"
+                android:scaleY="4"/>
+        </KeyFrameSet>
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="@+id/co2_level_in_ppm"
+            motion:layout_constraintBottom_toBottomOf="@+id/co2_level_in_ppm"
+            android:layout_width="wrap_content"
+            motion:layout_constraintVertical_bias="1.0"
+            android:id="@+id/air_quality"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/co2_level_in_ppm" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/co2_level_in_ppm"
+            motion:layout_constraintEnd_toStartOf="@+id/air_quality" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/co_level_description"
+            motion:layout_constraintBottom_toTopOf="@+id/co2_level_in_ppm"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintEnd_toStartOf="@+id/co2_level_in_ppm" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tvoc_descriptor"
+            motion:layout_constraintTop_toBottomOf="@+id/air_quality"
+            motion:layout_constraintStart_toStartOf="@+id/air_quality" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="@+id/co2_level_in_ppm"
+            motion:layout_constraintBottom_toBottomOf="@+id/co2_level_in_ppm"
+            android:layout_width="wrap_content"
+            motion:layout_constraintVertical_bias="0.0"
+            android:id="@+id/air_quality"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toStartOf="@+id/co2_level_in_ppm" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/co2_level_in_ppm"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/co2_level_in_ppm"
+            android:id="@+id/co_level_description"
+            motion:layout_constraintStart_toStartOf="@+id/co2_level_in_ppm" />
+        <Constraint
+            android:layout_height="16dp"
+            motion:layout_constraintBottom_toTopOf="@+id/air_quality"
+            android:layout_width="43dp"
+            android:id="@+id/tvoc_descriptor"
+            android:layout_marginBottom="24dp"
+            motion:layout_constraintEnd_toStartOf="@+id/air_quality" />
+    </ConstraintSet>
+</MotionScene>
